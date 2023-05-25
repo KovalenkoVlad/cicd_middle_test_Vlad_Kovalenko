@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Category,Recipe
+from .models import Recipe
 
 def main(request):
-    recipes = Recipe.objects.filter(year=2023)
+    recipes = Recipe.objects.filter(created_at__date=2023)
     return render(request, 'main.html', {'recipes': recipes})
 
 def recipe_detail(request, recipe_id):
